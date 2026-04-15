@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    color: white;
+    cursor: none;
+}
+
+/* Градиент */
+#gradient-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(270deg, #ff7eb3, #ff758c, #6a11cb, #2575fc);
+    background-size: 800% 800%;
+    animation: gradientMove 15s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0%}
+    50% {background-position: 100%}
+    100% {background-position: 0%}
+}
+
+/* Glass */
+.glass {
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    margin: 40px;
+    padding: 40px;
+}
+
+/* HERO */
+.hero img {
+    width: 200px;
+    border-radius: 20px;
+}
+
+/* ABOUT */
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.about img {
+    width: 250px;
+    border-radius: 20px;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.grid img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.grid img:hover {
+    transform: scale(1.07);
+}
+
+/* MESSAGE */
+.message {
+    text-align: center;
+}
+
+/* BUTTON */
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
+/* FADE */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MODAL */
+#modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+}
+
+/* CURSOR */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+}
+
+.cursor-trail {
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    position: fixed;
+    opacity: 0.5;
+}
+
+/* LOADER */
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* HEARTS */
+.heart {
+    position: fixed;
+    font-size: 20px;
+    animation: floatUp 3s linear;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+/* 📱 МОБИЛЬНАЯ АДАПТАЦИЯ */
+@media (max-width: 768px) {
+
+    .glass {
+        margin: 15px;
+        padding: 20px;
+    }
+
+    .hero img {
+        width: 150px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    /* О тебе */
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about img {
+        width: 180px;
+    }
+
+    /* Галерея */
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid img {
+        height: 120px;
+    }
+
+    /* Кнопка */
+    button {
+        width: 100%;
+    }
+
+    /* УБИРАЕМ КУРСОР НА ТЕЛЕФОНЕ */
+    .cursor,
+    .cursor-trail {
+        display: none;
+    }
+}
